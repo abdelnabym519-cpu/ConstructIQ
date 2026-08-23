@@ -41,10 +41,21 @@ def clean_strings(df):
 
 def parse_date(column):
     return F.coalesce(
-        F.to_date(F.col(column), "MM/dd/yyyy"),
+        # Current DataSF format, e.g. 2019/09/19 03:31:40 PM
+        F.to_date(F.col(column), "yyyy/MM/dd hh:mm:ss a"),
+
+        # Additional historical/defensive formats
+        F.to_date(F.col(column), "yyyy/MM/dd HH:mm:ss"),
+        F.to_date(F.col(column), "yyyy/MM/dd"),
+        F.to_date(F.col(column), "MM/dd/yyyy hh:mm:ss a"),
         F.to_date(F.col(column), "MM/dd/yyyy HH:mm:ss"),
+        F.to_date(F.col(column), "MM/dd/yyyy"),
         F.to_date(F.col(column), "yyyy-MM-dd"),
+
+        # Last-resort date-prefix parsing
+        F.to_date(F.substring(F.col(column), 1, 10), "yyyy/MM/dd"),
         F.to_date(F.substring(F.col(column), 1, 10), "MM/dd/yyyy"),
+        F.to_date(F.substring(F.col(column), 1, 10), "yyyy-MM-dd"),
     )
 
 
@@ -99,6 +110,7 @@ def main():
         "issued_date",
         "completed_date",
         "first_construction_document_date",
+        "approved_date",
         "structural_notification_date",
         "expiration_date",
         "last_permit_activity_date",

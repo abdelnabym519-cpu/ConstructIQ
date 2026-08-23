@@ -1,0 +1,143 @@
+{
+  "dataset": {
+    "rows": 1231991,
+    "columns": 28
+  },
+  "cost_statistics": {
+    "min": 1.0,
+    "mean": 35065.03416502231,
+    "stddev": 94434.2490357568,
+    "max": 1000000.0
+  },
+  "cost_quantiles": {
+    "p01": 1.0,
+    "p05": 1.0,
+    "p10": 1.0,
+    "p25": 1500.0,
+    "p50": 7000.0,
+    "p75": 24810.0,
+    "p90": 80000.0,
+    "p95": 164000.0,
+    "p99": 502600.0
+  },
+  "low_cost_diagnostic": {
+    "10": {
+      "rows_below": 193629,
+      "percentage": 15.7168
+    },
+    "100": {
+      "rows_below": 195502,
+      "percentage": 15.8688
+    },
+    "500": {
+      "rows_below": 217892,
+      "percentage": 17.6862
+    },
+    "1000": {
+      "rows_below": 259797,
+      "percentage": 21.0876
+    },
+    "5000": {
+      "rows_below": 515233,
+      "percentage": 41.8212
+    },
+    "10000": {
+      "rows_below": 701386,
+      "percentage": 56.9311
+    },
+    "50000": {
+      "rows_below": 1044846,
+      "percentage": 84.8095
+    },
+    "100000": {
+      "rows_below": 1129798,
+      "percentage": 91.7051
+    },
+    "500000": {
+      "rows_below": 1217685,
+      "percentage": 98.8388
+    }
+  },
+  "project_scale": {
+    "avg_existing_stories": 5.230999313870052,
+    "avg_proposed_stories": 5.547203017714863,
+    "avg_story_change": -0.004814970239230644,
+    "avg_existing_units": 11.23501996690311,
+    "avg_proposed_units": 11.232893010419245,
+    "avg_unit_change": 0.15071538671954585
+  },
+  "null_rates": {
+    "permit_creation_year": {
+      "missing_rows": 0,
+      "missing_percentage": 0.0
+    },
+    "permit_creation_month": {
+      "missing_rows": 0,
+      "missing_percentage": 0.0
+    },
+    "zipcode": {
+      "missing_rows": 168,
+      "missing_percentage": 0.0136
+    },
+    "supervisor_district": {
+      "missing_rows": 2639,
+      "missing_percentage": 0.2142
+    },
+    "permit_type": {
+      "missing_rows": 0,
+      "missing_percentage": 0.0
+    },
+    "permit_type_definition": {
+      "missing_rows": 610,
+      "missing_percentage": 0.0495
+    },
+    "application_submission_method": {
+      "missing_rows": 0,
+      "missing_percentage": 0.0
+    },
+    "existing_use": {
+      "missing_rows": 120251,
+      "missing_percentage": 9.7607
+    },
+    "proposed_use": {
+      "missing_rows": 128359,
+      "missing_percentage": 10.4188
+    },
+    "number_of_existing_stories": {
+      "missing_rows": 156393,
+      "missing_percentage": 12.6943
+    },
+    "number_of_proposed_stories": {
+      "missing_rows": 218774,
+      "missing_percentage": 17.7578
+    },
+    "existing_units": {
+      "missing_rows": 202287,
+      "missing_percentage": 16.4195
+    },
+    "proposed_units": {
+      "missing_rows": 185562,
+      "missing_percentage": 15.062
+    },
+    "existing_construction_type": {
+      "missing_rows": 221241,
+      "missing_percentage": 17.958
+    },
+    "proposed_construction_type": {
+      "missing_rows": 222692,
+      "missing_percentage": 18.0758
+    },
+    "is_adu": {
+      "missing_rows": 0,
+      "missing_percentage": 0.0
+    },
+    "is_site_permit": {
+      "missing_rows": 1205735,
+      "missing_percentage": 97.8688
+    },
+    "is_reroof": {
+      "missing_rows": 1114967,
+      "missing_percentage": 90.5012
+    }
+  }
+}
