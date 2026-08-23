@@ -1,0 +1,19 @@
+services:
+  spark:
+    image: apache/spark:3.5.9-scala2.12-java17-python3-r-ubuntu
+    container_name: constructiq-spark
+    working_dir: /workspace
+
+    volumes:
+      - ./:/workspace
+
+    command:
+      - /opt/spark/bin/spark-submit
+      - --master
+      - local[4]
+      - --driver-memory
+      - 2g
+      - /workspace/bigdata/jobs/00_spark_smoke.py
+
+    environment:
+      SPARK_LOCAL_DIRS: /tmp/spark
