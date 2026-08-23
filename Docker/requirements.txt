@@ -1,0 +1,11 @@
+pandas==1.5.1
+scikit-learn==1.0.2
+joblib==1.2.0
+plotly
+streamlit
+numpy==1.23.4
+scipy==1.9.3
+Pillow
+geopy
+requests
+regex
