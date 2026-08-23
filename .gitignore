@@ -154,3 +154,9 @@ derby.log
 # ConstructIQ downloaded source datasets
 data/source/*
 !data/source/.gitkeep
+
+# ConstructIQ trained ML artifacts
+models/constructiq_spark/
+
+# ConstructIQ ML V2 artifacts
+models/constructiq_spark_v2/

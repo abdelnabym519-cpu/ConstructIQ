@@ -184,6 +184,7 @@ def main():
         # Permit information
         "permit_type",
         "permit_type_definition",
+        "description",
         "application_submission_method",
 
         # Building use
