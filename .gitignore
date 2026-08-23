@@ -150,3 +150,7 @@ data/gold/*
 .sparkStaging/
 metastore_db/
 derby.log
+
+# ConstructIQ downloaded source datasets
+data/source/*
+!data/source/.gitkeep
