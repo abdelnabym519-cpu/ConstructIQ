@@ -1,0 +1,43 @@
+{
+  "production_model": {
+    "name": "structured_text_lr_v2",
+    "text_method": "HashingTF + IDF",
+    "explanation_limitation": "HashingTF uses hashed dimensions, so exact word-to-coefficient mapping is not reliable because collisions can occur."
+  },
+  "ablation_analysis": {
+    "validation": {
+      "structured_rmse": 105455.83791657598,
+      "text_structured_rmse": 92834.37574577623,
+      "rmse_reduction_percent": 11.968481233617759,
+      "structured_r2": -0.009156768042527075,
+      "text_structured_r2": 0.2179490887500365,
+      "structured_log_r2": 0.12697524155338202,
+      "text_structured_log_r2": 0.4784665303704636
+    },
+    "test": {
+      "structured_rmse": 122138.51298147175,
+      "text_structured_rmse": 105812.1583871424,
+      "rmse_reduction_percent": 13.367081517363848,
+      "structured_r2": -0.027178956459821935,
+      "text_structured_r2": 0.22907522307121708,
+      "structured_log_r2": 0.11824073511079924,
+      "text_structured_log_r2": 0.4641062825588994
+    }
+  },
+  "interpretable_companion_model": {
+    "purpose": "Global text explanation only; not the production predictor.",
+    "method": "CountVectorizer + IDF + Linear Regression",
+    "vocabulary_size": 1500,
+    "validation": {
+      "rows": 21237,
+      "log_rmse": 0.4620196701534886,
+      "log_r2": 0.4489813646445022
+    },
+    "test": {
+      "rows": 33425,
+      "log_rmse": 0.49226847045013106,
+      "log_r2": 0.430072246913519
+    }
+  },
+  "interpretation": "Positive coefficients are associated with higher predicted log10 construction cost in the companion model. Negative coefficients are associated with lower predicted cost. These are predictive associations, not causal effects."
+}

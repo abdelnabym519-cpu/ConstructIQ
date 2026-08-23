@@ -134,3 +134,29 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# --------------------------------------------------
+# ConstructIQ Big Data generated datasets
+# --------------------------------------------------
+data/bronze/*
+!data/bronze/.gitkeep
+
+data/silver/*
+!data/silver/.gitkeep
+
+data/gold/*
+!data/gold/.gitkeep
+
+.sparkStaging/
+metastore_db/
+derby.log
+
+# ConstructIQ downloaded source datasets
+data/source/*
+!data/source/.gitkeep
+
+# ConstructIQ trained ML artifacts
+models/constructiq_spark/
+
+# ConstructIQ ML V2 artifacts
+models/constructiq_spark_v2/

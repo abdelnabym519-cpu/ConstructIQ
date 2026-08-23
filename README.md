@@ -1,182 +1,184 @@
-<h1 align="center"> Civil Work Bidding Price Prediction in San Francisco. AI-Powered.🌉🏗️ 💸</h1>
+# 🏗️ ConstructIQ
 
-![python-shield](https://forthebadge.com/images/badges/made-with-python.svg)
+**Big Data & AI Construction Cost Intelligence**
 
-* [App](https://costofmyconstructionproject.herokuapp.com/)
-> In case of 404, click on [video capture](https://drive.google.com/file/d/13Y7McHQZtmEVhrX_G1Ukog_OVayNIo4P/view?usp=sharing)
+ConstructIQ is an end-to-end academic Big Data and AI platform for processing real-world construction permit data, analyzing construction trends, and estimating revised construction costs for projects in San Francisco.
 
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [Background](#background)
-- [Project](#project)
-- [Key documents](#key-documents)
-  - [Top-directory layout](#top-directory-layout)
-- [Technologies](#technologies)
-- [Datasets](#datasets)
-- [Getting started](#getting-started)
-  - [Ensure that pip module is installed by running :](#ensure-that-pip-module-is-installed-by-running-)
-  - [How to install pipenv ?](#how-to-install-pipenv-)
-  - [Clone the repository :](#clone-the-repository-)
-  - [Create your virtual environment :](#create-your-virtual-environment-)
-  - [Install all required librairies :](#install-all-required-librairies-)
-- [Install the project](#install-the-project)
-- [License](#license)
-- [Authors](#authors)
-- [Contact](#contact)
-- [Made with ❤️ in Paris](#made-with-️-in-paris)
+## Project Highlights
 
-## Background
+| Metric | Result |
+|---|---:|
+| Raw source | DataSF Building Permits |
+| Raw source size | ~666 MB |
+| Silver verified rows | 1,294,263 |
+| ML-ready Gold rows | 1,231,991 |
+| Gold columns | 29 |
+| Production model | Structured + Description TF-IDF Linear Regression |
+| Validation RMSE | $92,834 |
+| Validation R² | 0.2179 |
+| Validation Log-R² | 0.4785 |
+| Final Test RMSE | $105,812 |
+| Final Test R² | 0.2291 |
+| Final Test Log-R² | 0.4641 |
+| Improvement vs median baseline | 15.87% |
 
-San Francisco is a hyper-popular city with homeless community (20% of population), natural disaster risks and astronomical housing prices. Affordable housing in San Francisco has not been an option. Meanwhile, new affordable construction projects are high in need. Many investors consider construction projects to invest in SF, which can provide high return rate. For construction projects, engineers struggle to predict the construction project cost as reasonable as possible to win biddings. 🏗️ 💸
+## Big Data Pipeline
 
-## Project
+The project uses the official San Francisco Building Permits dataset from DataSF (`i98e-djp9`).
 
-This project is an AI-powered app 🧠🤖 to estimate cost of construction projects in San Francisco. 
-
-* [Presentation of project](https://docs.google.com/presentation/d/1uWvuKxi8LZJN_XV6F3pEtfRy1y2JgECC/edit?usp=sharing&ouid=117915938711430623839&rtpof=true&sd=true)
-
-Some of the efforts include data cleaning, feature engineering, setting up machine learning models, predictive error calculation, parameter tuning, creating a dashboard and deploying an online app. 
-
-Machine learning models were trained with the historical data coming from building permits of San Francisco available
-since early 1980s (thanks to datasf.org). A set of parameters and machine learning models were tested (including Linear,Lasso model, E-Net, KRidge, GBoosting, XGBoost, LGBoost and Random Forest). **Random Forest Model**🌲🌳🌲🌳 was judged to use as a final model.
-
-> Structural work cost 
-
-> ✅ include cost of foundation, columns, beams, slabs, floors, roof and workmanship cost
-
-> ❌ does not include land price, finishing work, electricity & plumbing and commercial costs
-
-![pipeline](https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper/blob/0b9bc8a0add95aa4bfb8555bd3746303d31c0cf0/.img_pipeline.PNG)
-
-## Key documents
-	
-1 - Notebook on [exploratory data analysis](https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper/blob/Master/NoteBooks/Exploratory_Data_Analysis.ipynb)
-
-2 - Script on [data cleaning](https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper/blob/Master/src/building_permits.py) 
-
-3 - Notebook on [machine learning predictive models](https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper/blob/Master/NoteBooks/predictive_models.ipynb)
-
-4 - Logs on [scores of machine learning models and experiments](https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper/blob/Master/Tracking/exp_logs.csv)
-
-### Top-directory layout
-
-    .
-    ├── Docker                  # App deployment. Scripts with streamlit, final ML models and Docker container settings.
-    ├── NoteBooks               # Jupyter notebooks on EDA, feature engineering and ML models
-    ├── ShapeOut                # Documents on building footprints in SF
-    ├── Tracking                # Logs of ML model scores and experiments
-    ├── src                     # Scripts on functions, database cleaning, building ground surface area and ML model experiments 
-    ├── LICENSE
-    ├── README.md 
-	├── README_FR.md
-    └── requirements.txt
-
-## Technologies
-Project is created with:
-* Python 3.8
-* Jupyter Notebook 6.4.12
-* Python libraries (see /requirements.txt)
-* Streamlit 1.12.0
-* Docker 20.10.18
-* VSCode 1.71.2
-
-## Datasets
-1 - [San Francisco Permit Data](https://data.sfgov.org/Housing-and-Buildings/Building-Permits/i98e-djp9/data)
-
-> A building permit is an official approval document issued by a government agency that allows a construction or a renovation project on a property. More information can be found on this [website](https://www.thespruce.com/what-is-a-building-permit-1398344). Each city or county has its own building office to perform multiple functions such as issuing permits, inspecting buildings for safety measures, changing rules to meet the needs of a growing population, etc. For the City of San Francisco, building permits are handled by [SF DBI](www.sfdbi.org/). The dataset includes details on application/permit ID, job location, the current status of the applications and some other details. Data is uploaded weekly by DBI.
-
-2 - [Building Footprints in San Francisco](https://data.sfgov.org/Housing-and-Buildings/Building-Footprints-File-Geodatabase-Format-/asx6-3trm)
-
-## Getting started
-
-To run this project you need :
-
-- [Python 3.10](https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe)
-- [pip](https://packaging.python.org/en/latest/key_projects/#pip)
-- [pipenv](https://pypi.org/project/pipenv/#pipenv-python-development-workflow-for-humans) (optional)
-  
-### Ensure that pip module is installed by running : 
-```
-```sh
-python -m ensurepip --default-pip
+```text
+DataSF Building Permits
+        |
+        v
+Bronze — Raw / Immutable
+        |
+        v
+Silver — Cleaned / Validated / Typed
+        |
+        v
+Gold — ML-ready Features
+        |
+        +----> EDA / Business Analytics
+        +----> Machine Learning + NLP
+        +----> Explainable AI
+        |
+        v
+ConstructIQ Streamlit Dashboard
 ```
 
-### How to install pipenv ?
-```sh
-pip install pipenv
+Verified Silver rows: **1,294,263**
+
+Final Gold dataset: **1,231,991 rows × 29 columns**
+
+## Machine Learning
+
+Temporal evaluation:
+
+- Train: 2015–2023
+- Validation: 2024
+- Test: 2025+
+
+V2 policy:
+
+- target source: `revised_cost` only
+- supported cost domain: `$100–$1,000,000`
+- target: `log10(revised construction cost)`
+
+Selected model:
+
+**Structured + Description TF-IDF Linear Regression**
+
+### Final Performance
+
+| Metric | Validation | Test |
+|---|---:|---:|
+| MAE | $34,906 | $41,718 |
+| RMSE | $92,834 | $105,812 |
+| R² | 0.2179 | 0.2291 |
+| Log-RMSE | 0.4495 | 0.4773 |
+| Log-R² | 0.4785 | 0.4641 |
+
+Validation RMSE improved by **15.87%** versus the median baseline.
+
+## Explainable AI
+
+ConstructIQ adds:
+
+1. structured-vs-text ablation analysis
+2. an interpretable CountVectorizer companion model
+3. a Model Card
+
+Examples of terms associated with higher predicted cost include:
+
+- remodel
+- MEP
+- stories
+- kitchen
+- crane
+- shoring
+- mechanical
+
+These are predictive associations, not causal effects.
+
+## Dashboard
+
+The final dashboard contains:
+
+1. Executive Overview
+2. Construction Analytics
+3. AI Cost Intelligence
+4. Explainable AI
+5. Model Performance
+6. Architecture
+
+A verified live dashboard prediction produced **$71,057**.
+
+## Technology Stack
+
+**Big Data:** Apache Spark 3.5.9, PySpark, Parquet, Snappy, Medallion Architecture
+
+**AI / ML:** Spark MLlib, Linear Regression, Random Forest, Gradient Boosted Trees
+
+**NLP:** RegexTokenizer, StopWordsRemover, HashingTF, IDF, CountVectorizer
+
+**Analytics:** Pandas, Plotly, Streamlit
+
+**Engineering:** Docker, Docker Compose, Git, GitHub
+
+## Run Spark Foundation
+
+```bash
+docker compose -f docker-compose.spark.yml run --rm spark
 ```
 
-### Clone the repository :
-   ```sh
-   git clone https://github.com/LHB-Group/Civil-Work-Bidding-And-Investment-Helper.git
-   ```
+Expected result:
 
-### Create your virtual environment :
-Go to your repository folder and run the following command.
-```sh
-python -m venv my_venv
-# the my_venv folder should appear
-```
-Once created you need to activate your venv
+`SPARK_FOUNDATION_OK`
 
-Windows :
-```sh
-# Go to your repository folder and type :
-./my_venv/Scripts/activate
-# You should have something like :
-(my_venv) C:\Users\...\Civil-Work-Bidding-And-Investment-Helper>
-```
-Linux / Mac OS :
-```sh
-# Go to your repository folder and type :
-source my_venv/bin/activate
-# You should have something like :
-(my_venv) C:\Users\...\Civil-Work-Bidding-And-Investment-Helper>
+## Run the Dashboard
+
+Build:
+
+```bash
+docker build -t constructiq-dashboard:latest -f Dockerfile.dashboard .
 ```
 
-### Install all required librairies :
+Run:
 
-```sh
-pip install -r requirements.txt
+```bash
+docker run --name constructiq-dashboard   -p 8502:8501   -v "$(pwd)/models:/workspace/models:ro"   constructiq-dashboard:latest
 ```
 
-## Install the project
+Open:
 
-The install.py script permit you to dowload and create all folders and files for the project. 
+`http://localhost:8502`
 
-**<p>Build the complete dataset can take several hours because of feature engineering but <span style ="color: red">you can download it [here](https://drive.google.com/file/d/1Ffbhy12m4JG9REEdSQwwewIFE0KUiEX3/view?usp=sharing)</span> and move it to [Datasets] Folder</p>**
-```sh
-# go to the src folder and run :
-python ./install.py
-```
-**If you download the File you need to rename it :**
-<p>
-Exemple : 20220823_Building_Permits.csv (CreationDate+FileName)
+## Limitations
 
-You need to rename it to Building_Permits.csv
-</p>
+- Predictions are analytical estimates, not contractor quotations.
+- The model is trained primarily on San Francisco permit data.
+- Construction costs are highly right-skewed.
+- Very unusual projects can have larger errors.
+- Predictions are constrained to the supported model domain.
+- Permit valuation may differ from final delivered construction cost.
+- Explainability terms represent association, not causation.
+
+## Open-Source Attribution
+
+ConstructIQ was bootstrapped from the MIT-licensed project:
+
+**LHB-Group/Civil-Work-Bidding-And-Investment-Helper**
+
+The original MIT license is retained.
+
+ConstructIQ subsequently adds the PySpark medallion pipeline, large-scale DataSF processing, ML/NLP V2 experimentation, temporal evaluation, Explainable AI, reproducible analytics, and the final ConstructIQ dashboard.
+
+See `docs/ATTRIBUTION.md`.
 
 ## License
 
-Distributed under the MIT License. See LICENSE.txt for more information.
+MIT License. See `LICENSE`.
 
-## Authors
+## Academic Scope
 
-Baptiste Cournault :
-
-[GitHub](https://github.com/croustibats)
-
-Hicham Mrani :
-
-[GitHub](https://github.com/hicham-mrani)
-
-Levent ISBILIROGLU :
-
-[GitHub](https://github.com/levist7)
-
-## Contact
-
-Please see contact details on presentation file [above](#project).
-
----
-Made with ❤️ in Paris
+**Real-world Data → Big Data → EDA → Machine Learning → NLP → Explainable AI → Interactive Dashboard**

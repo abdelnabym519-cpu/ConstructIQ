@@ -1,0 +1,126 @@
+{
+  "training_policy": {
+    "target": "log10(target_cost)",
+    "minimum_cost": 100.0,
+    "maximum_cost": 1000000.0,
+    "train_years": "2015-2023",
+    "validation_year": 2024,
+    "test_years": "2025+",
+    "prediction_evaluation": "Predictions inverse-transformed from log10 dollars and clipped to the declared model cost domain."
+  },
+  "split_rows": {
+    "train": 229139,
+    "validation": 22002,
+    "test": 35415
+  },
+  "features": {
+    "categorical": [
+      "zipcode",
+      "supervisor_district_cat",
+      "neighborhoods_analysis_boundaries",
+      "permit_type_definition",
+      "application_submission_method",
+      "existing_use",
+      "proposed_use",
+      "existing_construction_type_description",
+      "proposed_construction_type_description"
+    ],
+    "numeric": [
+      "permit_creation_year",
+      "permit_creation_month",
+      "number_of_existing_stories",
+      "number_of_proposed_stories",
+      "story_change",
+      "existing_units",
+      "proposed_units",
+      "unit_change",
+      "is_adu",
+      "is_site_permit",
+      "is_reroof"
+    ],
+    "vector_size": 315
+  },
+  "baseline": {
+    "training_median_cost": 19200.0
+  },
+  "selection": {
+    "criterion": "validation RMSE",
+    "best_model": "linear_regression",
+    "best_validation_rmse": 106386.21178877552,
+    "rmse_improvement_vs_median_percent": 4.147702653399276
+  },
+  "metrics": [
+    {
+      "model": "median_baseline",
+      "split": "validation",
+      "rows": 22002,
+      "mae": 44088.20807199345,
+      "rmse": 110989.73601444761,
+      "r2": -0.10345189537631572,
+      "mape": 272.81227881217796
+    },
+    {
+      "model": "median_baseline",
+      "split": "test",
+      "rows": 35415,
+      "mae": 56197.60827333051,
+      "rmse": 135500.47682202864,
+      "r2": -0.1339361986714891,
+      "mape": 285.26813086692255
+    },
+    {
+      "model": "linear_regression",
+      "split": "validation",
+      "rows": 22002,
+      "mae": 42438.0956148696,
+      "rmse": 106386.21178877552,
+      "r2": -0.013814404838979222,
+      "mape": 256.2172337844419
+    },
+    {
+      "model": "linear_regression",
+      "split": "test",
+      "rows": 35415,
+      "mae": 53527.392409577864,
+      "rmse": 128719.12492512468,
+      "r2": -0.02327680469701021,
+      "mape": 288.56325857023614
+    },
+    {
+      "model": "random_forest",
+      "split": "validation",
+      "rows": 22002,
+      "mae": 42571.2311204686,
+      "rmse": 108168.06125887943,
+      "r2": -0.04805930849179063,
+      "mape": 220.87808399705472
+    },
+    {
+      "model": "random_forest",
+      "split": "test",
+      "rows": 35415,
+      "mae": 54201.32231279006,
+      "rmse": 131518.99784436732,
+      "r2": -0.06827718769347002,
+      "mape": 242.47052303071945
+    },
+    {
+      "model": "gradient_boosted_trees",
+      "split": "validation",
+      "rows": 22002,
+      "mae": 42524.01436287302,
+      "rmse": 106800.81849997683,
+      "r2": -0.021731846567231816,
+      "mape": 235.17495840039837
+    },
+    {
+      "model": "gradient_boosted_trees",
+      "split": "test",
+      "rows": 35415,
+      "mae": 53655.406502697064,
+      "rmse": 128942.12211647425,
+      "r2": -0.02682539180209731,
+      "mape": 258.8423212892778
+    }
+  ]
+}

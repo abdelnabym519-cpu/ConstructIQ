@@ -1,0 +1,26 @@
+FROM apache/spark:3.5.9-scala2.12-java17-python3-r-ubuntu
+
+USER root
+
+WORKDIR /workspace
+
+# Apache Spark ships PySpark as local Python libraries.
+# spark-submit adds these paths automatically, but the Streamlit
+# Python process needs them explicitly.
+ENV PYTHONPATH="/opt/spark/python:/opt/spark/python/lib/pyspark.zip:/opt/spark/python/lib/py4j-0.10.9.7-src.zip"
+
+
+COPY dashboard/requirements.txt /tmp/dashboard-requirements.txt
+
+RUN python3 -m pip install --no-cache-dir     -r /tmp/dashboard-requirements.txt
+
+COPY dashboard /workspace/dashboard
+COPY reports /workspace/reports
+
+RUN mkdir -p /workspace/models &&     chown -R spark:spark /workspace
+
+USER spark
+
+EXPOSE 8501
+
+CMD ["python3", "-m", "streamlit", "run", "/workspace/dashboard/app.py", "--server.address=0.0.0.0", "--server.port=8501", "--server.headless=true"]
