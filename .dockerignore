@@ -1,0 +1,9 @@
+.git
+data
+models
+NoteBooks
+ShapeOut
+Docker
+__pycache__
+*.pyc
+silver-error.log
